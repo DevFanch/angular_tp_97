@@ -1,0 +1,15 @@
+<h2>Les Pokemons</h2>
+
+<ul>
+    @for (pokemon of pokemons; track $index) {
+        <li>{{ pokemon.name }}
+            <ul>
+                <li>Catégorie :{{ pokemon.category }}</li>
+                <li>Type : {{ pokemon.type }}</li>
+                <li>Taille : {{ pokemon.size }} m</li>
+                <li>Poids : {{ pokemon.height }} kg</li>
+            </ul>
+        </li>
+        <hr>
+    }
+</ul>

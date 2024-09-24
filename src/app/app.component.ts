@@ -1,51 +1,15 @@
 import { Component } from '@angular/core';
 import { HeaderComponent } from './partials/header/header.component';
-import { FormsModule } from '@angular/forms';
-
-interface Task {
-  id: number
-  title: string
-  createdAt: Date
-  completed: boolean
-}
+import { GenerationsComponent } from './components/generations/generations.component';
+import { PokemonsComponent } from './components/pokemons/pokemons.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [HeaderComponent, FormsModule],
+  imports: [HeaderComponent, GenerationsComponent, PokemonsComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'TP1 - Header & Todolist';
-
-  // Todo Add
-  taskToAdd: string = ''
-  // Todo check les doublons d'id en cas de suppression
-  todolist: Array<Task> = [
-    {id: 1, title: "Faire à manger", createdAt: new Date, completed: false},
-    {id: 2, title: "Faire le ménage", createdAt: new Date, completed: true},
-    {id: 3, title: "Faire les courses", createdAt: new Date, completed: true},
-    {id: 4, title: "Se motiver pour faire de sport", createdAt: new Date, completed: false},
-    {id: 5, title: "Avoir de la patience avec mes enfants", createdAt: new Date, completed: false},
-  ]
-
-  // Methods
-  addTask(): void {
-    if (this.taskToAdd.trim() !== '') {
-      this.todolist.push({id: this.todolist.length++, title: this.taskToAdd, createdAt: new Date, completed: false})
-      this.taskToAdd = ''
-    }
-  }
-
-  removeTask(index: number): void {
-    this.todolist.splice(index, 1)
-  }
-
-  // getTasksDone(): Array<Task>|null {
-  //   return this.todolist.filter((task) => task.completed)
-  // }
-  // getTasksNotDone(): Array<Task>|null {
-  //   return this.todolist.filter((task) => !task.completed)
-  // }
+  title = 'TP1 - Base - Générations et - Pokemons'; 
 }
