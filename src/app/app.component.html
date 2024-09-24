@@ -1,0 +1,32 @@
+<app-header></app-header>
+
+    <h1>{{ title }}</h1>
+
+    <h2>Add Task</h2>
+    <input type="text" [(ngModel)]="taskToAdd">
+    <button (click)="addTask()">Add</button>
+    
+    <h2>Tasks Done</h2>
+    <ul>
+        @for (task of todolist; track task.id) {
+            @if(task.completed) {
+                <li>
+                    <input type="checkbox" [(ngModel)]="task.completed">&nbsp;{{ task?.title }} &nbsp;
+                    <span (click)="removeTask($index)">X</span>
+                </li>
+            }
+        }
+    </ul>
+    
+    <hr>
+    <h2>Tasks Not Done</h2>
+    <ul>
+        @for (task of todolist; track task.id) {
+            @if(!task.completed) {
+                <li>
+                    <input type="checkbox" [(ngModel)]="task.completed">&nbsp;{{ task?.title }} &nbsp;
+                    <span (click)="removeTask($index)">X</span>
+                </li>
+            }
+        }
+    </ul>
