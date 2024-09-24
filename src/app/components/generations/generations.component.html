@@ -1,7 +1,8 @@
-<h2>Les différentes Generations</h2>
-
-<ul>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
     @for (gen of generations; track $index) {
-        <li>{{gen}}</li>
+    <div class="bg-white rounded-lg shadow-md p-4">
+        <h3 class="text-xl font-bold mb-2">{{ gen }}</h3>
+        <p class="text-gray-600 mb-4">Découvrez les nouveaux Pokémon de la génération {{ $index + 1 }}.</p>
+    </div>
     }
-</ul>
+</div>

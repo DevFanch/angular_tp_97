@@ -1,15 +1,17 @@
-<h2>Les Pokemons</h2>
-
-<ul>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
     @for (pokemon of pokemons; track $index) {
-        <li>{{ pokemon.name }}
-            <ul>
-                <li>Catégorie :{{ pokemon.category }}</li>
-                <li>Type : {{ pokemon.type }}</li>
-                <li>Taille : {{ pokemon.size }} m</li>
-                <li>Poids : {{ pokemon.height }} kg</li>
-            </ul>
-        </li>
-        <hr>
+    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+        <div class="px-4 py-3">
+            <h3 class="text-lg font-bold">{{ pokemon.name }}</h3>
+            <div class="mt-2 flex justify-between items-center">
+                <span class="text-gray-500 font-medium">Catégorie : {{ pokemon.category }}</span>
+                <span class="text-gray-500 font-medium">Type : {{ pokemon.type }}</span>
+            </div>
+            <div class="mt-2 flex justify-between items-center">
+                <span class="text-gray-500 font-medium">Taille : {{ pokemon.size }} m</span>
+                <span class="text-gray-500 font-medium">Poids : {{ pokemon.height }} kg</span>
+            </div>
+        </div>
+    </div>
     }
-</ul>
+</div>

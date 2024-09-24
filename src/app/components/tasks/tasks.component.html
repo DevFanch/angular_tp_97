@@ -1,28 +1,18 @@
-<h2>Add Task</h2>
-<input type="text" [(ngModel)]="taskToAdd">
-<button (click)="addTask()">Add</button>
+<div class="container mx-auto px-4 py-8">
+    <h1 class="text-2xl font-bold mb-4">Todo List</h1>
 
-<h2>Tasks Done</h2>
-<ul>
-    @for (task of todolist; track task.id) {
-        @if(task.completed) {
-        <li>
-            <input type="checkbox" [(ngModel)]="task.completed">&nbsp;{{ task?.title }} &nbsp;
-            <span (click)="removeTask($index)">X</span>
-        </li>
-        }
-    }
-</ul>
+    <div class="mb-4">
+        <input type="text" class="border p-2 rounded w-full" placeholder="Add a new task" [(ngModel)]="newTodo"
+            (keyup.enter)="addTodo()">
+    </div>
 
-<hr>
-<h2>Tasks Not Done</h2>
-<ul>
-    @for (task of todolist; track task.id) {
-        @if(!task.completed) {
-        <li>
-            <input type="checkbox" [(ngModel)]="task.completed">&nbsp;{{ task?.title }} &nbsp;
-            <span (click)="removeTask($index)">X</span>
-        </li>
+    <h2>Todo</h2>
+    <ul>
+        @for (todo of todos; track $index) {
+            <li [class.completed]="todo.completed">
+                <input type="checkbox" [(ngModel)]="todo.completed"> {{ todo.title }} | created at {{ todo.createdAt | date: 'short' }}
+                <button (click)="removeTodo($index)">Delete</button>
+            </li>
         }
-    }
-</ul>
+    </ul>
+</div>

@@ -9,6 +9,6 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
   title: string = "Ma super App"
-  links: Array<string> = ['Home', 'About', 'Contact Us', 'Admin']
-  isAdmin: boolean = false
+  links: Array<string> = ['Home', 'TodoList App', 'Generations', 'Pokemons', 'Admin']
+  isAdmin: boolean = true
 }
