@@ -4,10 +4,16 @@
     <div class="bg-white rounded-lg shadow-md overflow-hidden">
         <div class="px-4 py-3">
             <h3 class="text-lg font-bold">{{ pokemon.name }}</h3>
-            <img [src]="pokemon.sprite" alt="Image de {{ pokemon.name }}">
+            <img class="object-contain w-full h-48" [src]="pokemon.sprite" alt="Image de {{ pokemon.name }}">
             <div class="mt-2 flex justify-between items-center">
                 <span class="text-gray-500 font-medium">PokedexId : {{ pokemon.pokedexId }}</span>
-                <span class="text-gray-500 font-medium">Type : {{ pokemon.apiTypes | json }}</span>
+                <span class="text-gray-500 font-medium">Type :
+                    <ul>
+                        @for(type of pokemon.apiTypes; track $index) {
+                            <li>{{ type.name }}</li>
+                        }
+                    </ul>
+                </span>
             </div>
             <div class="mt-2 flex justify-between items-center">
                 <span class="text-gray-500 font-medium">Attack : {{ pokemon.stats.attack }}</span>
@@ -15,6 +21,7 @@
             </div>
         </div>
     </div>
+
     } @empty {
         A pas de pokemons
     }
