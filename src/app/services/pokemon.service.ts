@@ -13,6 +13,10 @@ export class PokemonService {
   private httpClient: HttpClient = inject(HttpClient)
   
   fetchSomePokemons(): any {
-    return this.httpClient.get(`${API_POKEMON}limit/500`)
+    return this.httpClient.get(`${API_POKEMON}limit/20`)
+  }
+
+  getOneById(id: number): any {
+    return this.httpClient.get(`${API_POKEMON}${id}`)
   }
 }

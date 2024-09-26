@@ -2,24 +2,27 @@
 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
     @for (pokemon of pokemons; track $index) {
     <div class="bg-white rounded-lg shadow-md overflow-hidden">
-        <div class="px-4 py-3">
-            <h3 class="text-lg font-bold">{{ pokemon.name }}</h3>
-            <img class="object-contain w-full h-48" [src]="pokemon.sprite" alt="Image de {{ pokemon.name }}">
-            <div class="mt-2 flex justify-between items-center">
-                <span class="text-gray-500 font-medium">PokedexId : {{ pokemon.pokedexId }}</span>
-                <span class="text-gray-500 font-medium">Type :
-                    <ul>
-                        @for(type of pokemon.apiTypes; track $index) {
-                            <li>{{ type.name }}</li>
-                        }
-                    </ul>
-                </span>
+
+        <a [routerLink]="['/pokemon', pokemon.id]">
+            <div class="px-4 py-3">
+                <h3 class="text-lg font-bold">{{ pokemon.name }}</h3>
+                <img class="object-contain w-full h-48" [src]="pokemon.sprite" alt="Image de {{ pokemon.name }}">
+                <div class="mt-2 flex justify-between items-center">
+                    <span class="text-gray-500 font-medium">PokedexId : {{ pokemon.pokedexId }}</span>
+                    <span class="text-gray-500 font-medium">Type :
+                        <ul>
+                            @for(type of pokemon.apiTypes; track $index) {
+                                <li>{{ type.name }}</li>
+                            }
+                        </ul>
+                    </span>
+                </div>
+                <div class="mt-2 flex justify-between items-center">
+                    <span class="text-gray-500 font-medium">Attack : {{ pokemon.stats.attack }}</span>
+                    <span class="text-gray-500 font-medium">Defend : {{ pokemon.stats.defense }}</span>
+                </div>
             </div>
-            <div class="mt-2 flex justify-between items-center">
-                <span class="text-gray-500 font-medium">Attack : {{ pokemon.stats.attack }}</span>
-                <span class="text-gray-500 font-medium">Defend : {{ pokemon.stats.defense }}</span>
-            </div>
-        </div>
+        </a>
     </div>
 
     } @empty {
